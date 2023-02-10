@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div th:each="song: ${song}">
+<p th:text="${song.getTitle()}">
+
+</div>
+</body>
+</html>
