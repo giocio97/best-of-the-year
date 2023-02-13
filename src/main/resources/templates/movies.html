@@ -2,13 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+ <link rel="stylesheet" th:href="@{/css/application.css}">
 
 <title>movies</title>
 </head>
 <body>
+<div class="card">
+  <div class="card-header">
+    <h4>Best of</h4>
+    
+   	<a th:href="@{/movies}" > <button  type="button" class="btn btn-outline-primary"> Movies </button> </a> 
+     <a th:href="@{/songs}"> <button  type="button" class="btn btn-outline-primary">songs </button> </a>	
+  </div>
+  <div class="card-body text-center">
+   <h5 class="card-title ">Best of movies</h5>
+   
+   <div class="card" style="width: 100%;">
+  
+  <ul  th:each="movie: ${movie}" class="list-group list-group-flush">
+    <li th:text="${movie.getTitle()}" class="list-group-item">An item</li>
+    
+  </ul>
+   <a th:href="@{/}"> <button type="button" class="btn btn-outline-primary">HOME </button></a> 
+</div>
 
-<div th:each="movie: ${movie}">
-<p th:text="${movie.getTitle()}">
+   
+   
+  
+
+
+
 
 </div>
 </body>
