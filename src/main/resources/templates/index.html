@@ -2,12 +2,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
+<th:block th:fragment="head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/application.css}">
+</th:block>
+
 <title>Pagina di benvenuto</title>
 </head>
 <body>
-<h1>Benvenuto nel mio sito web </h1>
-<h2 th:text=" 'Best of the year by ' + ${mynome}"></h2>
+<div th:fragment="script">
+	<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h4>Best of</h4>
+    
+    <button  type="button" class="btn btn-outline-primary">	<a th:href="@{/movies}" > Movies </a> </button>
+    <button  type="button" class="btn btn-outline-primary"> <a th:href="@{/songs}">songs </a>	</button>
+  </div>
+  <div class="card-body text-center">
+   <h5 th:text=" 'Best of by ' + ${mynome}"class="card-title "></h5>
+   <div class="card " style="width: 10rem;">
+  <img alt="logo" th:src=".." class="card-img-top" >
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    
+  </div>
+</div>
+
+
 </body>
 </html>
 
