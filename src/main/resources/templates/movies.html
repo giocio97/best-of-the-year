@@ -22,7 +22,10 @@
    <div class="card" style="width: 100%;">
   
   <ul  th:each="movie: ${movie}" class="list-group list-group-flush">
-    <li th:text="${movie.getTitle()}" class="list-group-item">An item</li>
+    <li   class="list-group-item">
+    <a th:href="@{'/movies/'+${movie.id}}" th:text="${movie.getTitle()}"></a>
+    
+    </li>
     
   </ul>
    <a th:href="@{/}"> <button type="button" class="btn btn-outline-primary">HOME </button></a> 

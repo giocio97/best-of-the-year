@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +27,7 @@ public class MainController {
 
 	@GetMapping("/movies")
 	public String showMovies(Model m) {
-		List<Movie> mov = getBsetMovies();
+		List<Movie> mov = getBestMovies();
 		m.addAttribute("movie", mov);
 
 		return "movies";
@@ -34,14 +35,14 @@ public class MainController {
 
 	@GetMapping("/songs")
 	public String showSongs(Model s) {
-		List<Song> songs = getBsetSongs();
+		List<Song> songs = getBestSongs();
 		s.addAttribute("song", songs);
 
 		return "songs";
 
 	}
 
-	private List<Movie> getBsetMovies() {
+	private List<Movie> getBestMovies() {
 		List<Movie> movies = new ArrayList<>();
 
 		Movie movie1 = new Movie(1, "Harry Potter");
@@ -55,7 +56,7 @@ public class MainController {
 
 	}
 
-	private List<Song> getBsetSongs() {
+	private List<Song> getBestSongs() {
 		List<Song> songs = new ArrayList<>();
 
 		Song song1 = new Song(1, "nel blu dipinto di blu");
@@ -68,4 +69,21 @@ public class MainController {
 		return songs;
 
 	}
+
+	@GetMapping("/movies/{id}")
+	public String dettaglioMovie(Model model, @PathVariable("id") String id) {
+		List<Movie> movies = getBestMovies();
+		model.addAttribute("movie", movies.get(Integer.parseInt(id) - 1));
+		return "movie";
+
+	}
+
+	@GetMapping("/songs/{id}")
+	public String dettaglioSong(Model model, @PathVariable("id") String id) {
+		List<Song> songs = getBestSongs();
+		model.addAttribute("song", songs.get(Integer.parseInt(id) - 1));
+		return "song";
+
+	}
+
 }

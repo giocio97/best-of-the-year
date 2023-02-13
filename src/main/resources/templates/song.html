@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+ <link rel="stylesheet" th:href="@{/css/application.css}">
+
+<title>song</title>
+</head>
+<body>
+
+   
+   
+<h4 th:text="${song.getId()}"></h4>
+<h4 th:text="${song.getTitle()}"></h4>
+
+<a th:href="@{/}"> <button type="button" class="btn btn-outline-primary">HOME </button></a> 
+
+
+
+
+
+</body>
+</html>
